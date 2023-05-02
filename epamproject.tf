@@ -20,8 +20,8 @@ resource "aws_ecs_task_definition" "epam_ecs" {
   ])
 }
 
-resource "aws_ecr_repository" "epam-repository" {
-  name                 = "epam-repository"
+resource "aws_ecr_repository" "epam1-repository" {
+  name                 = "epam1-repository"
   image_tag_mutability = "IMMUTABLE"
   image_scanning_configuration {
     scan_on_push = true
