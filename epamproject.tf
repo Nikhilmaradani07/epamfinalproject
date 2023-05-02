@@ -73,14 +73,3 @@ resource "aws_ecs_cluster" "epam-cluster" {
   name = "epam-cluster"
 }
 
-resource "aws_ecs_service" "epam-ecs-service" {
-  name            = "epam-ecs-service"
-  cluster         = aws_ecs_cluster.epam-cluster.id
-  task_definition = aws_ecs_task_definition.epam_ecs.arn
-  desired_count   = 1
-
-  network_configuration {
-    subnets         = [aws_subnet.epam-subnet.id]
-    security_groups = [aws_security_group.epam-security-group.id]
-  }
-}
